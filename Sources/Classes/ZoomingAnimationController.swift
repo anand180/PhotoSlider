@@ -42,10 +42,10 @@ public class ZoomingAnimationController: NSObject, UIViewControllerAnimatedTrans
 
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let containerView = transitionContext.containerView()!
+        let containerView = transitionContext.containerView()
 
         let snapshotView = fromViewController.view.resizableSnapshotViewFromRect(fromViewController.view.frame, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
-        containerView.addSubview(snapshotView)
+        containerView.addSubview(snapshotView!)
         
         toViewController.view.alpha = 0.0
         containerView.addSubview(toViewController.view)
@@ -87,7 +87,7 @@ public class ZoomingAnimationController: NSObject, UIViewControllerAnimatedTrans
         
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let containerView = transitionContext.containerView()!
+        let containerView = transitionContext.containerView()
         
         containerView.addSubview(toViewController.view)
         containerView.addSubview(fromViewController.view)
